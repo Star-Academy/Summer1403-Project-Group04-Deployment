@@ -1,0 +1,58 @@
+backend:
+  repository: negar-backend
+  pullPolicy: IfNotPresent
+  tag: "latest"
+  replicaCount: 1
+  port: 80
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "1"
+
+postgres:
+  repository: postgres
+  tag: "16.3"
+  pullPolicy: IfNotPresent
+  replicaCount: 1
+  port: 5432
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  resources:
+    requests:
+      memory: "500Mi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
+  pvc:
+    storage: 1Gi
+
+frontend:
+  repository: negar-frontend
+  pullPolicy: IfNotPresent
+  tag: "latest"
+  replicaCount: 1
+  port: 80
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "1"
