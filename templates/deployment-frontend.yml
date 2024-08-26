@@ -12,6 +12,8 @@ spec:
       labels:
         app: frontend
     spec:
+      imagePullSecrets:
+        - name: {{ .Values.abrimentImagePullSecret.name }}
       containers:
         - name: frontend
           image: {{ .Values.frontend.repository }}:{{ .Values.frontend.tag }}
@@ -23,5 +25,5 @@ spec:
               memory: {{ .Values.frontend.resources.requests.memory }}
               cpu: {{ .Values.frontend.resources.requests.cpu }}
             limits:
-              memory: {{ .Values.frontend.resources.limits.memory }}"
+              memory: {{ .Values.frontend.resources.limits.memory }}
               cpu: {{ .Values.frontend.resources.limits.cpu }}

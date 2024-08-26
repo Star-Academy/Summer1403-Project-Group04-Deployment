@@ -12,6 +12,8 @@ spec:
       labels:
         app: backend
     spec:
+      imagePullSecrets:
+        - name: {{ .Values.abrimentImagePullSecret.name }}
       initContainers:
         - name: migrate
           image: {{ .Values.backend.repository }}:{{ .Values.backend.tag }}

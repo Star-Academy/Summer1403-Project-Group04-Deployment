@@ -9,5 +9,5 @@ data:
   POSTGRES_USER: "postgres"
   POSTGRES_PASSWORD: "postgres"
   HOST: "postgres"
-  PORT: {{ .Values.postgres.port }}
+  PORT: "{{ .Values.postgres.port }}"
   POSTGRES_CONNECTION_STRING: "Host=postgres;Database=postgres;Username=postgres;Password=postgres;"

@@ -1,7 +1,10 @@
 backend:
-  repository: negar-backend
+  #repository: registry.abriment.com/mhch/negar-backend
+  repository: docker.arvancloud.ir/mhchah/imagebuilder
+  #repository: negar-backend
   pullPolicy: IfNotPresent
-  tag: "latest"
+    #pullPolicy: Always
+  tag: v0.0.3
   replicaCount: 1
   port: 80
 
@@ -11,11 +14,11 @@ backend:
 
   resources:
     requests:
-      memory: "256Mi"
-      cpu: "500m"
+      memory: "3000Mi"
+      cpu: "2000m"
     limits:
-      memory: "512Mi"
-      cpu: "1"
+      memory: "3000Mi"
+      cpu: "2000m"
 
 postgres:
   repository: postgres
@@ -26,22 +29,25 @@ postgres:
 
   service:
     type: ClusterIP
-    port: 80
+    port: 5432
 
   resources:
     requests:
-      memory: "500Mi"
-      cpu: "500m"
+      memory: "3000Mi"
+      cpu: "2000m"
     limits:
-      memory: "1Gi"
-      cpu: "1"
+      memory: "3000Mi"
+      cpu: "2000m"
   pvc:
-    storage: 1Gi
+    storage: "3Gi"
 
 frontend:
-  repository: negar-frontend
+  # repository: docker.arvancloud.ir/mhchah/negar-frontend
+    #repository: negar-frontend
+  repository: docker.arvancloud.ir/mhchah/imagebuilder
   pullPolicy: IfNotPresent
-  tag: "latest"
+  # tag: v0.11.3
+  tag: v0.0.8
   replicaCount: 1
   port: 80
 
@@ -51,8 +57,12 @@ frontend:
 
   resources:
     requests:
-      memory: "256Mi"
-      cpu: "500m"
+      memory: "3000Mi"
+      cpu: "2000m"
     limits:
-      memory: "512Mi"
-      cpu: "1"
+      memory: "3000Mi"
+      cpu: "2000m"
+
+abrimentImagePullSecret:
+  name: negar-abrsecret
+
