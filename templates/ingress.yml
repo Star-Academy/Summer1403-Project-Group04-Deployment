@@ -1,27 +1,27 @@
-apiVersion: networking.k8s.io/v1  
-kind: Ingress  
-metadata:  
-  name: my-ingress  
-  namespace: 0b12e0d24d4541c097bbaab164438125-negar
-  labels:  
-    app: nginxn  
-spec:  
-  ingressClassName: my-ingress  
-  rules:  
-    - host: noice.abriment.com  
-      http:   
-        paths:  
-          - path: /api  
-            pathType: Prefix  
-            backend:  
-              service:  
-                name: back-service  
-                port:  
-                  number: {{ .Values.backend.service.port }} 
-          - path: /  
-            pathType: Prefix  
-            backend:  
-              service:  
-                name: front-service  
-                port:  
-                  number: {{ .Values.frontend.service.port }}
+# apiVersion: networking.k8s.io/v1  
+# kind: Ingress  
+# metadata:  
+#   name: my-ingress  
+#   namespace: 0b12e0d24d4541c097bbaab164438125-negar
+#   labels:  
+#     app: backend
+# spec:  
+#   ingressClassName: my-ingress  
+#   rules:  
+#     - host: noice.abriment.com  
+#       http:   
+#         paths:  
+#           - path: /api  
+#             pathType: Prefix  
+#             backend:  
+#               service:  
+#                 name: back-service  
+#                 port:  
+#                   number: {{ .Values.backend.service.port }} 
+#           - path: /  
+#             pathType: Prefix  
+#             backend:  
+#               service:  
+#                 name: front-service  
+#                 port:  
+#                   number: {{ .Values.frontend.service.port }}
