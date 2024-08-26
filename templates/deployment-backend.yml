@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.abrimentImagePullSecret.name }}
+      initContainers:
+        - name: migrate
+          image: {{ .Values.backend.repository }}:{{ .Values.backend.tag }}
+          imagePullPolicy: {{ .Values.backend.pullPolicy }}
+          env:
+            - name: CONNECTION_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: db-configs
+                  key: POSTGRES_CONNECTION_STRING
+          command: ["dotnet", "./RelationAnalysis.Migrations.dll"]
+          ports:
+            - containerPort: {{ .Values.backend.port }}
+          resources:
+            requests:
+              memory: {{ .Values.backend.resources.requests.memory }}
+              cpu: {{ .Values.backend.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.backend.resources.limits.memory }}
+              cpu: {{ .Values.backend.resources.limits.cpu }}
+      containers:
+        - name: backend
+          image: {{ .Values.backend.repository }}:{{ .Values.backend.tag }}
+          imagePullPolicy: {{ .Values.backend.pullPolicy }}
+          env:
+            - name: CONNECTION_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: db-configs
+                  key: POSTGRES_CONNECTION_STRING
+          ports:
+            - containerPort: {{ .Values.backend.port }}
+          resources:
+            requests:
+              memory: {{ .Values.backend.resources.requests.memory }}
+              cpu: {{ .Values.backend.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.backend.resources.limits.memory }}
+              cpu: {{ .Values.backend.resources.limits.cpu }}
