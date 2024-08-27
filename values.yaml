@@ -3,16 +3,14 @@ backend:
   # repository: docker.arvancloud.ir/mhchah/imagebuilder
   #repository: negar-backend
   pullPolicy: IfNotPresent
-    #pullPolicy: Always
+  #pullPolicy: Always
   # tag: v0.0.3
-  tag: v0.10.6
+  tag: v0.10.18
   replicaCount: 1
   port: 80
-
   service:
     type: ClusterIP
     port: 80
-
   resources:
     requests:
       memory: "3000Mi"
@@ -20,18 +18,15 @@ backend:
     limits:
       memory: "3000Mi"
       cpu: "2000m"
-
 postgres:
   repository: postgres
   tag: "16.3"
   pullPolicy: IfNotPresent
   replicaCount: 1
   port: 5432
-
   service:
     type: ClusterIP
     port: 5432
-
   resources:
     requests:
       memory: "1500Mi"
@@ -41,7 +36,6 @@ postgres:
       cpu: "1000m"
   pvc:
     storage: "3Gi"
-
 frontend:
   repository: docker.arvancloud.ir/mhchah/negar-frontend
   # repository: docker.arvancloud.ir/mhchah/imagebuilder
@@ -50,11 +44,9 @@ frontend:
   # tag: v0.0.8
   replicaCount: 1
   port: 80
-
   service:
     type: ClusterIP
     port: 80
-
   resources:
     requests:
       memory: "1500Mi"
@@ -62,7 +54,5 @@ frontend:
     limits:
       memory: "1500Mi"
       cpu: "1000m"
-
 abrimentImagePullSecret:
   name: negar-abrsecret
-
