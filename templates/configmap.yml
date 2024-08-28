@@ -6,8 +6,8 @@ metadata:
     app: postgres
 data:
   POSTGRES_DB: "postgres"
-  POSTGRES_USER: "admin"
-  POSTGRES_PASSWORD: "Ih4jo"
+  POSTGRES_USER: "mhch"
+  POSTGRES_PASSWORD: "Roylash14@#"
   HOST: "negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432"
   PORT: "{{ .Values.postgres.port }}"
-  POSTGRES_CONNECTION_STRING: "Host=negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432;Database=postgres;Username=admin;Password=Ih4jo;"
+  POSTGRES_CONNECTION_STRING: "Host=negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432;Database=postgres;Username=mhch;Password=Roylash14@#;"
