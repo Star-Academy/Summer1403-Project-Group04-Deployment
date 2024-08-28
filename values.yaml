@@ -40,7 +40,7 @@ frontend:
   repository: docker.arvancloud.ir/mhchah/negar-frontend
   # repository: docker.arvancloud.ir/mhchah/imagebuilder
   pullPolicy: IfNotPresent
-  tag: v0.15.6
+  tag: v0.16.0
   # tag: v0.0.8
   replicaCount: 1
   port: 80
