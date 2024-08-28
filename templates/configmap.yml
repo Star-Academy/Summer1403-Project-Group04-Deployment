@@ -10,4 +10,4 @@ data:
   POSTGRES_PASSWORD: "Ih4jo"
   HOST: "negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432"
   PORT: "{{ .Values.postgres.port }}"
-  POSTGRES_CONNECTION_STRING: "Host=negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432;Database=postgres;Username=postgres;Password=postgres;"
+  POSTGRES_CONNECTION_STRING: "Host=negarpostgres.0b12e0d24d4541c097bbaab164438125-dbaas-postgresql-2928087ada4ad.svc.cluster.local:5432;Database=postgres;Username=admin;Password=Ih4jo;"
