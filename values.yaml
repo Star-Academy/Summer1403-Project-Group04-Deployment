@@ -5,8 +5,8 @@ backend:
   pullPolicy: IfNotPresent
   #pullPolicy: Always
   # tag: v0.0.3
-  tag: v0.12.0
-  replicaCount: 1
+  tag: v0.10.18
+  replicaCount: 0
   port: 80
   service:
     type: ClusterIP
@@ -42,7 +42,7 @@ frontend:
   pullPolicy: IfNotPresent
   tag: v0.16.0
   # tag: v0.0.8
-  replicaCount: 1
+  replicaCount: 0
   port: 80
   service:
     type: ClusterIP
