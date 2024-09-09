@@ -6,7 +6,7 @@ backend:
   #pullPolicy: Always
   # tag: v0.0.3
   tag: v0.12.5
-  replicaCount: 0
+  replicaCount: 1
   port: 80
   service:
     type: ClusterIP
@@ -22,7 +22,7 @@ postgres:
   repository: postgres
   tag: "16.3"
   pullPolicy: IfNotPresent
-  replicaCount: 0
+  replicaCount: 1
   port: 5432
   service:
     type: ClusterIP
