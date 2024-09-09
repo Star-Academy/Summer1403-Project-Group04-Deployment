@@ -22,7 +22,7 @@ postgres:
   repository: postgres
   tag: "16.3"
   pullPolicy: IfNotPresent
-  replicaCount: 1
+  replicaCount: 0
   port: 5432
   service:
     type: ClusterIP
@@ -42,7 +42,7 @@ frontend:
   pullPolicy: IfNotPresent
   tag: v0.19.0
   # tag: v0.0.8
-  replicaCount: 0
+  replicaCount: 1
   port: 80
   service:
     type: ClusterIP
